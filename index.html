@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рекламный баннер WhatsApp</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #25D366;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .banner {
+            background: linear-gradient(135deg, #128C7E, #25D366);
+            width: 1080px;
+            height: 1920px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.3), transparent);
+            filter: blur(60px);
+            animation: glowMove 10s infinite alternate;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            padding: 50px 25px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 52px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-out;
+            padding: 0 15px;
+            margin-bottom: 40px;
+        }
+
+        .services {
+            padding: 0 15px;
+            margin-bottom: 40px;
+        }
+
+        .services li {
+            font-size: 32px;
+            list-style: none;
+            margin-bottom: 20px;
+            padding: 25px 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: slideIn 0.5s ease-out backwards;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+        }
+
+        .services li .service-title {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .services li .service-title::before {
+            content: '✓';
+            font-size: 28px;
+            margin-right: 20px;
+            color: #DCF8C6;
+        }
+
+        .services li .service-examples {
+            font-size: 26px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-left: 48px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            line-height: 1.4;
+        }
+
+        .services li:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .services li:nth-child(1) { animation-delay: 0.2s; }
+        .services li:nth-child(2) { animation-delay: 0.4s; }
+        .services li:nth-child(3) { animation-delay: 0.6s; }
+        .services li:nth-child(4) { animation-delay: 0.8s; }
+
+        .tech-stack {
+            padding: 0 15px;
+            margin-bottom: 40px;
+        }
+
+        .tech-title {
+            font-size: 38px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            color: #DCF8C6;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .tech-group {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+            animation: fadeIn 0.5s ease-out backwards;
+        }
+
+        .tech-group:hover {
+            transform: translateX(20px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .tech-group:nth-child(2) { animation-delay: 1s; }
+        .tech-group:nth-child(3) { animation-delay: 1.2s; }
+        .tech-group:nth-child(4) { animation-delay: 1.4s; }
+
+        .tech-label {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #DCF8C6;
+            display: flex;
+            align-items: center;
+        }
+
+        .tech-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(220, 248, 198, 0.3);
+            margin-left: 15px;
+        }
+
+        .tech-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tech-items span {
+            font-size: 24px;
+            padding: 12px 20px;
+            background: rgba(0, 0, 0, 0.25);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.3s ease-out backwards;
+        }
+
+        .tech-items span i {
+            font-size: 22px;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            padding: 8px;
+            position: relative;
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+            text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+        }
+
+        .tech-items span:nth-child(1) { animation-delay: 1.6s; }
+        .tech-items span:nth-child(2) { animation-delay: 1.7s; }
+        .tech-items span:nth-child(3) { animation-delay: 1.8s; }
+        .tech-items span:nth-child(4) { animation-delay: 1.9s; }
+        .tech-items span:nth-child(5) { animation-delay: 2.0s; }
+
+        .tech-items .python i { 
+            color: #4584b6; 
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
+        }
+        .tech-items .go i { 
+            color: #00ACD7; 
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
+        }
+        .tech-items .node i { 
+            color: #83CD29; 
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
+        }
+        .tech-items .fastapi i { 
+            color: #05C091; 
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
+        }
+        .tech-items .postgres i { 
+            color: #336791; 
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
+        }
+        
+        .tech-items .react i { 
+            color: #61DAFB; 
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
+        }
+        .tech-items .vue i { 
+            color: #42b883; 
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
+        }
+        .tech-items .typescript i { 
+            color: #3178C6; 
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
+        }
+        .tech-items .next i { 
+            color: #ffffff; 
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
+        }
+        .tech-items .tailwind i { 
+            color: #38bdf8; 
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
+        }
+        
+        .tech-items .docker i { 
+            color: #2496ED; 
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
+        }
+        .tech-items .kubernetes i { 
+            color: #326CE5; 
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
+        }
+        .tech-items .cicd i { 
+            color: #ff4f64; 
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
+        }
+        .tech-items .aws i { 
+            color: #FF9900; 
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
+        }
+        .tech-items .terraform i { 
+            color: #7B42BC; 
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
+        }
+
+        .tech-items span:hover {
+            transform: translateY(-3px);
+            background: rgba(0, 0, 0, 0.35);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .tech-items span:hover i {
+            transform: scale(1.1);
+            -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.4);
+        }
+
+        .tech-items span:hover i::after {
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .contacts {
+            position: relative;
+            margin-top: auto;
+            padding: 25px;
+            padding-left: 220px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            animation: slideUp 1s ease-out;
+            margin: 0 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            min-height: 200px;
+        }
+
+        .avatar {
+            position: absolute;
+            left: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            animation: avatarGlow 3s infinite alternate;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+            transition: transform 0.3s ease;
+        }
+
+        .avatar:hover img {
+            transform: scale(1.1);
+        }
+
+        .signature {
+            font-size: 44px;
+            color: #DCF8C6;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .subtitle {
+            font-size: 28px;
+            color: rgba(220, 248, 198, 0.9);
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        .contact-item {
+            font-size: 26px;
+            color: white;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            padding: 18px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-item i {
+            font-size: 30px;
+            margin-right: 20px;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            padding: 10px;
+            transition: all 0.3s ease;
+            position: relative;
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
+            text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+        }
+
+        .whatsapp i {
+            color: #25D366;
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
+        }
+
+        .telegram i {
+            color: #0088cc;
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
+        }
+
+        .contact-item:hover {
+            transform: translateX(5px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-item:hover i {
+            transform: scale(1.1);
+            -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.4);
+        }
+
+        @keyframes glowMove {
+            0% { transform: translate(-30%, -30%) scale(1); opacity: 0.3; }
+            50% { transform: translate(0%, 0%) scale(1.2); opacity: 0.5; }
+            100% { transform: translate(30%, 30%) scale(1.3); opacity: 0.6; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes avatarGlow {
+            from { box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); }
+            to { box-shadow: 0 0 30px rgba(220, 248, 198, 0.3); }
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="glow"></div>
+        <div class="content">
+            <h1>Разработка комплексных IT-решений</h1>
+            
+            <ul class="services">
+                <li>
+                    <div class="service-title">Высоконагруженные веб-сервисы</div>
+                    <div class="service-examples">онлайн-магазины • сервисы доставки • агрегаторы</div>
+                </li>
+                <li>
+                    <div class="service-title">Корпоративные приложения</div>
+                    <div class="service-examples">CRM-системы • личные кабинеты • базы клиентов</div>
+                </li>
+                <li>
+                    <div class="service-title">Интеграционные решения</div>
+                    <div class="service-examples">подключение оплаты • Wildberries/OZON • службы доставки</div>
+                </li>
+                <li>
+                    <div class="service-title">Системы автоматизации</div>
+                    <div class="service-examples">чат-боты • рассылки • автоматический учёт</div>
+                </li>
+            </ul>
+
+            <div class="tech-stack">
+                <div class="tech-title">Технологии:</div>
+                <div class="tech-group">
+                    <div class="tech-label">Backend:</div>
+                    <div class="tech-items">
+                        <span class="python"><i class="fab fa-python"></i>Python</span>
+                        <span class="go"><i class="fas fa-code"></i>Go</span>
+                        <span class="node"><i class="fab fa-node-js"></i>Node.js</span>
+                        <span class="fastapi"><i class="fas fa-bolt"></i>FastAPI</span>
+                        <span class="postgres"><i class="fas fa-database"></i>PostgreSQL</span>
+                    </div>
+                </div>
+                <div class="tech-group">
+                    <div class="tech-label">Frontend:</div>
+                    <div class="tech-items">
+                        <span class="react"><i class="fab fa-react"></i>React</span>
+                        <span class="vue"><i class="fab fa-vuejs"></i>Vue.js</span>
+                        <span class="typescript"><i class="fas fa-code"></i>TypeScript</span>
+                        <span class="next"><i class="fas fa-n"></i>Next.js</span>
+                        <span class="tailwind"><i class="fas fa-wind"></i>TailwindCSS</span>
+                    </div>
+                </div>
+                <div class="tech-group">
+                    <div class="tech-label">DevOps:</div>
+                    <div class="tech-items">
+                        <span class="docker"><i class="fab fa-docker"></i>Docker</span>
+                        <span class="kubernetes"><i class="fas fa-dharmachakra"></i>Kubernetes</span>
+                        <span class="cicd"><i class="fas fa-infinity"></i>CI/CD</span>
+                        <span class="aws"><i class="fab fa-aws"></i>AWS</span>
+                        <span class="terraform"><i class="fas fa-cubes"></i>Terraform</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contacts">
+                <div class="avatar">
+                    <img src="face.jpeg" alt="Igor Mihaleff">
+                </div>
+                <div class="signature">IGOR MIHALEFF</div>
+                <div class="subtitle">Full-Stack Software Architect</div>
+                <div class="contact-item whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                    +7 953 888-84-68
+                </div>
+                <div class="contact-item telegram">
+                    <i class="fab fa-telegram"></i>
+                    @Mihalefff
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
