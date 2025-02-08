@@ -712,6 +712,27 @@
                 height: 20px;
                 margin-right: 6px;
             }
+
+            .metrics-container {
+                flex-direction: row;
+                margin: 8px 4px;
+                gap: 4px;
+            }
+
+            .metric-item {
+                padding: 8px 4px;
+                min-width: 0;
+            }
+
+            .metric-item div:first-child {
+                font-size: 18px;
+                margin-bottom: 2px;
+            }
+
+            .metric-item div:last-child {
+                font-size: 10px;
+                white-space: nowrap;
+            }
         }
 
         /* Для очень маленьких экранов */
@@ -752,6 +773,24 @@
             .contact-item {
                 font-size: 11px;
             }
+
+            .metrics-container {
+                margin: 6px 0;
+                gap: 4px;
+            }
+
+            .metric-item {
+                padding: 6px 3px;
+            }
+
+            .metric-item div:first-child {
+                font-size: 16px;
+                margin-bottom: 1px;
+            }
+
+            .metric-item div:last-child {
+                font-size: 9px;
+            }
         }
     </style>
 </head>
@@ -759,56 +798,68 @@
     <div class="banner">
         <div class="glow"></div>
         <div class="content">
-            <h1>Разработка комплексных IT-решений</h1>
+            <h1>AI-Powered Разработка</h1>
             
             <ul class="services">
                 <li>
-                    <div class="service-title">Высоконагруженные веб-сервисы</div>
-                    <div class="service-examples">онлайн-магазины • сервисы доставки • агрегаторы</div>
+                    <div class="service-title">Разработка с AI</div>
+                    <div class="service-examples">микросервисы • веб-приложения • API</div>
                 </li>
                 <li>
-                    <div class="service-title">Корпоративные приложения</div>
-                    <div class="service-examples">CRM-системы • личные кабинеты • базы клиентов</div>
+                    <div class="service-title">Микросервисы</div>
+                    <div class="service-examples">REST API • gRPC • Docker</div>
                 </li>
                 <li>
-                    <div class="service-title">Интеграционные решения</div>
-                    <div class="service-examples">подключение оплаты • Wildberries/OZON • службы доставки</div>
+                    <div class="service-title">Веб-разработка</div>
+                    <div class="service-examples">сайты • веб-сервисы • интерфейсы</div>
                 </li>
                 <li>
-                    <div class="service-title">Системы автоматизации</div>
-                    <div class="service-examples">чат-боты • рассылки • автоматический учёт</div>
+                    <div class="service-title">AI Models</div>
+                    <div class="service-examples">ChatGPT-4o • Claude 3.5 Sonnet • Deep Seek R1</div>
                 </li>
             </ul>
 
+            <div class="metrics-container" style="display: flex; justify-content: space-around; margin: 20px 15px; gap: 15px;">
+                <div class="metric-item" style="background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 15px; text-align: center; flex: 1; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
+                    <div style="font-size: 32px; font-weight: bold; color: #DCF8C6; margin-bottom: 5px;">3</div>
+                    <div style="color: rgba(255, 255, 255, 0.9);">года</div>
+                </div>
+                <div class="metric-item" style="background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 15px; text-align: center; flex: 1; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
+                    <div style="font-size: 32px; font-weight: bold; color: #DCF8C6; margin-bottom: 5px;">8+</div>
+                    <div style="color: rgba(255, 255, 255, 0.9);">проектов</div>
+                </div>
+                <div class="metric-item" style="background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 15px; text-align: center; flex: 1; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
+                    <div style="font-size: 32px; font-weight: bold; color: #DCF8C6; margin-bottom: 5px;">10+</div>
+                    <div style="color: rgba(255, 255, 255, 0.9);">технологий</div>
+                </div>
+            </div>
+
             <div class="tech-stack">
                 <div class="tech-group">
-                    <div class="tech-label">Backend:</div>
+                    <div class="tech-label">AI IDE:</div>
                     <div class="tech-items">
-                        <span class="python"><i class="fab fa-python"></i>Python</span>
-                        <span class="go"><i class="fas fa-code"></i>Go</span>
-                        <span class="node"><i class="fab fa-node-js"></i>Node.js</span>
-                        <span class="fastapi"><i class="fas fa-bolt"></i>FastAPI</span>
-                        <span class="postgres"><i class="fas fa-database"></i>PostgreSQL</span>
+                        <span class="ai"><i class="fas fa-terminal"></i>Cursor Fusion</span>
+                        <span class="ai"><i class="fas fa-code"></i>Windsurf</span>
+                        <span class="ai"><i class="fas fa-magic"></i>GitHub Copilot</span>
                     </div>
                 </div>
                 <div class="tech-group">
                     <div class="tech-label">Frontend:</div>
                     <div class="tech-items">
                         <span class="react"><i class="fab fa-react"></i>React</span>
-                        <span class="vue"><i class="fab fa-vuejs"></i>Vue.js</span>
-                        <span class="typescript"><i class="fas fa-code"></i>TypeScript</span>
+                        <span class="typescript"><i class="fab fa-js"></i>TypeScript</span>
                         <span class="next"><i class="fas fa-n"></i>Next.js</span>
-                        <span class="tailwind"><i class="fas fa-wind"></i>TailwindCSS</span>
+                        <span class="tailwind"><i class="fas fa-wind"></i>Tailwind</span>
                     </div>
                 </div>
                 <div class="tech-group">
-                    <div class="tech-label">DevOps:</div>
+                    <div class="tech-label">Backend:</div>
                     <div class="tech-items">
-                        <span class="docker"><i class="fab fa-docker"></i>Docker</span>
-                        <span class="kubernetes"><i class="fas fa-dharmachakra"></i>Kubernetes</span>
-                        <span class="cicd"><i class="fas fa-infinity"></i>CI/CD</span>
-                        <span class="aws"><i class="fab fa-aws"></i>AWS</span>
-                        <span class="terraform"><i class="fas fa-cubes"></i>Terraform</span>
+                        <span class="python"><i class="fab fa-python"></i>Python</span>
+                        <span class="go"><i class="fas fa-code"></i>Go</span>
+                        <span class="node"><i class="fab fa-node-js"></i>Node.js</span>
+                        <span class="postgres"><i class="fas fa-database"></i>PostgreSQL</span>
+                        <span class="mysql"><i class="fas fa-database"></i>MySQL</span>
                     </div>
                 </div>
             </div>
@@ -818,14 +869,18 @@
                     <img src="face.jpeg" alt="Igor Mihaleff">
                 </div>
                 <div class="signature">IGOR MIHALEFF</div>
-                <div class="subtitle">Full-Stack Software Architect</div>
+                <div class="subtitle">Full-Stack Developer</div>
                 <div class="contact-item whatsapp">
-                    <i class="fab fa-whatsapp"></i>
-                    +7 953 888-84-68
+                    <a href="https://wa.me/79538888468" style="text-decoration: none; color: inherit; display: flex; align-items: center;">
+                        <i class="fab fa-whatsapp"></i>
+                        +7 953 888-84-68
+                    </a>
                 </div>
                 <div class="contact-item telegram">
-                    <i class="fab fa-telegram"></i>
-                    @Mihalefff
+                    <a href="https://t.me/Mihalefff" style="text-decoration: none; color: inherit; display: flex; align-items: center;">
+                        <i class="fab fa-telegram"></i>
+                        @Mihalefff
+                    </a>
                 </div>
             </div>
         </div>
