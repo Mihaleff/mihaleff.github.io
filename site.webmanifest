@@ -1,0 +1,19 @@
+{
+  "name": "AI-Powered Разработка",
+  "short_name": "AI Dev",
+  "icons": [
+    {
+      "src": "/favicon16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#128C7E",
+  "background_color": "#25D366",
+  "display": "standalone"
+} 
