@@ -3,24 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Рекламный баннер WhatsApp</title>
+    <title>Михалёв Игорь | Backend & AI Developer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/png" href="/favicon32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/favicon16.png" sizes="16x16">
+    <link rel="icon" href="favicon_cursor.ico" type="image/x-icon">
     <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-icons-font@v7/font/simple-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <style>
         .cursor {
-            border-left: 2px solid white;
-            position: absolute;
-            right: -10px;
-            bottom: 1px;
-            animation: blink-caret 0.75s step-end infinite;
+            border-left: 2px solid rgba(255,255,255,0.8);
+            min-width: 1ch;
+            padding-left: 1px;
+            vertical-align: middle;
+            display: inline-block;
+            line-height: 1em;
+            animation: blink-caret 1s cubic-bezier(.4,0,.2,1) infinite;
+            opacity: 1;
+            transition: opacity 0.2s;
         }
 
         @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: white; }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.2; }
         }
 
         .subtitle {
@@ -39,6 +45,127 @@
             position: relative;
             z-index: 2;
         }
+
+        .name-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 6px;
+        }
+        #name, #position {
+            min-height: 1.2em;
+            font-size: inherit;
+            color: #fff;
+        }
+        #position {
+            color: #DCF8C6;
+            font-size: 1.1em;
+        }
+        .cursor {
+            display: inline-block;
+            width: 1ch;
+            animation: blink-caret 0.75s step-end infinite;
+        }
+        .icon-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2em;
+            height: 2em;
+            background: rgba(255,255,255,0.35);
+            border-radius: 50%;
+            margin-right: 12px;
+            line-height: 0;
+            font-size: 1.2em;
+            flex-shrink: 0;
+        }
+        .icon-badge > * {
+            width: 50%;
+            height: 50%;
+            display: block;
+        }
+        .devicon-postgresql-plain.colored { color: #336791 !important; }
+        .devicon-mysql-plain.colored { color: #00758F !important; }
+        .icon-badge i { font-size: 1.5em; }
+        .icon-badge.pg { background: #e7f0fa; }
+        .icon-badge.mysql { background: #fdf6e3; }
+        .icon-badge.go { background: #e0f7fa; }
+        .icon-badge.python { background: #e3f0fd; }
+        .icon-badge.ts { background: #e6f3fa; }
+        .icon-badge.docker { background: #e3f6fd; }
+        .icon-badge.redis { background: #fdeaea; }
+        .icon-badge.ai { background: #fffbe6; }
+        .icon-badge.cursor { background: #f3e6fd; }
+        .icon-badge.swagger { background: #e6fbe6; }
+        .icon-badge.git { background: #fbeee6; }
+        .icon-badge.cursor-ide img {
+            width: 1.2em;
+            height: 1.2em;
+            object-fit: contain;
+        }
+        .contacts {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 16px;
+            margin-top: 24px;
+        }
+        .contact-item {
+            flex: 1;
+            min-width: 200px;
+            max-width: 280px;
+            margin: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.10);
+            border-radius: 14px;
+            padding: 12px 16px;
+            font-size: 1.06em;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: background 0.2s;
+        }
+        .contact-item:hover {
+            background: rgba(255,255,255,0.16);
+        }
+        .contact-item i {
+            margin-right: 10px;
+            font-size: 1.5em;
+            display: inline-block;
+        }
+        .contact-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: inherit;
+            text-decoration: none;
+            width: 100%;
+        }
+        .contact-link span:last-child {
+            margin-left: 0;
+        }
+        .contact-item.whatsapp i { color: #25D366; }
+        .contact-item.telegram i { color: #229ED9; }
+        .contact-item.email i { color: #444; }
+        @media (max-width: 700px) {
+            .contacts { flex-direction: column; gap: 12px; }
+            .contact-item { min-width: 0; width: 100%; justify-content: flex-start; }
+        }
+        .contacts-metrics {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 16px;
+        }
+        .contacts-metrics .metric-item {
+            flex: 1;
+            margin: 0 8px;
+            background: rgba(255,255,255,0.10);
+            border-radius: 12px;
+            padding: 14px 0;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -46,98 +173,94 @@
         <canvas id="particles"></canvas>
         <div class="glow"></div>
         <div class="content">
-            <h1>AI-Powered Разработка</h1>
-            
+            <h1>Backend & AI Разработка</h1>
             <ul class="services">
                 <li>
-                    <div class="service-title">Разработка с AI</div>
-                    <div class="service-examples">микросервисы • веб-приложения • API</div>
+                    <div class="service-title">Backend на Go</div>
+                    <div class="service-examples">микросервисы • REST API • высоконагруженные системы</div>
                 </li>
                 <li>
-                    <div class="service-title">Микросервисы</div>
-                    <div class="service-examples">REST API • gRPC • Docker</div>
+                    <div class="service-title">AI-интеграции</div>
+                    <div class="service-examples">AI-ассистенты • автоматизация тестов • ускорение разработки</div>
                 </li>
                 <li>
-                    <div class="service-title">Веб-разработка</div>
-                    <div class="service-examples">сайты • веб-сервисы • интерфейсы</div>
+                    <div class="service-title">Оптимизация и DevOps</div>
+                    <div class="service-examples">кэширование • оптимизация SQL • облачные сервисы</div>
                 </li>
                 <li>
-                    <div class="service-title">AI Models</div>
-                    <div class="service-examples">ChatGPT-4o • Claude 3.5 Sonnet • Deep Seek R1</div>
+                    <div class="service-title">Интеграции</div>
+                    <div class="service-examples">внешние API • платежные системы • геолокация</div>
                 </li>
             </ul>
-
-            <div class="metrics-container">
-                <div class="metric-item">
-                    <div class="metric-value">3</div>
-                    <div class="metric-label">года</div>
-                </div>
-                <div class="metric-item">
-                    <div class="metric-value">10+</div>
-                    <div class="metric-label">проектов</div>
-                </div>
-                <div class="metric-item">
-                    <div class="metric-value">10+</div>
-                    <div class="metric-label">технологий</div>
-                </div>
-            </div>
-
             <div class="tech-stack">
                 <div class="tech-group">
-                    <div class="tech-label">AI IDE:</div>
+                    <div class="tech-label">Языки и платформы:</div>
                     <div class="tech-items">
-                        <span class="ai"><i class="fas fa-terminal"></i>Cursor Fusion</span>
-                        <span class="ai"><i class="fas fa-code"></i>Windsurf</span>
-                        <span class="ai"><i class="fas fa-magic"></i>GitHub Copilot</span>
+                        <span class="go"><span class="icon-badge go"><i class="si si-go" style="color:#00ADD8" aria-label="Go"></i></span>Go</span>
+                        <span class="nodejs"><span class="icon-badge nodejs"><i class="devicon-nodejs-plain colored" aria-label="Node.js"></i></span>Node.js</span>
                     </div>
                 </div>
                 <div class="tech-group">
-                    <div class="tech-label">Frontend:</div>
+                    <div class="tech-label">Базы данных и кэш:</div>
                     <div class="tech-items">
-                        <span class="react"><i class="fab fa-react"></i>React</span>
-                        <span class="typescript"><i class="fab fa-js"></i>TypeScript</span>
-                        <span class="next"><i class="fas fa-n"></i>Next.js</span>
-                        <span class="tailwind"><i class="fas fa-wind"></i>Tailwind</span>
+                        <span class="postgres"><span class="icon-badge pg"><i class="devicon-postgresql-plain colored" aria-label="PostgreSQL"></i></span>PostgreSQL</span>
+                        <span class="mysql"><span class="icon-badge mysql"><i class="devicon-mysql-plain colored" aria-label="MySQL"></i></span>MySQL</span>
+                        <span class="docker"><span class="icon-badge docker"><i class="fab fa-docker" style="color:#2496ED" aria-label="Docker"></i></span>Docker</span>
+                        <span class="redis"><span class="icon-badge redis"><i class="si si-redis" style="color:#D82C20" aria-label="Redis"></i></span>Redis</span>
                     </div>
                 </div>
                 <div class="tech-group">
-                    <div class="tech-label">Backend:</div>
+                    <div class="tech-label">Инструменты и API:</div>
                     <div class="tech-items">
-                        <span class="python"><i class="fab fa-python"></i>Python</span>
-                        <span class="go"><i class="fas fa-code"></i>Go</span>
-                        <span class="node"><i class="fab fa-node-js"></i>Node.js</span>
-                        <span class="postgres"><i class="fas fa-database"></i>PostgreSQL</span>
-                        <span class="mysql"><i class="fas fa-database"></i>MySQL</span>
+                        <span class="ai"><span class="icon-badge ai"><i class="fas fa-brain" style="color:#FFD600" aria-label="AI"></i></span>AI-ассистенты</span>
+                        <span class="ai"><span class="icon-badge cursor-ide"><img src="cursorlogo.svg" alt="Cursor IDE"></span>Cursor IDE</span>
+                        <span class="tool"><span class="icon-badge swagger"><i class="si si-swagger" style="color:#85EA2D" aria-label="Swagger"></i></span>Swagger</span>
+                        <span class="ai"><span class="icon-badge git"><i class="si si-git" style="color:#F05032" aria-label="Git"></i></span>Git</span>
                     </div>
                 </div>
             </div>
-
             <div class="contacts">
                 <div class="avatar">
-                    <img src="face.jpeg" alt="Igor Mihaleff">
+                    <img src="face.jpeg" alt="Михалёв Игорь">
                 </div>
                 <div class="signature">
                     <h2 class="name-container" aria-live="polite">
                         <span class="typed-text" id="name"></span>
-                        <span class="cursor" id="main-cursor">&nbsp;</span>
+                        <span class="typed-text" id="position"></span>
                     </h2>
                 </div>
-                <div class="subtitle">
-                    <div class="position-container">
-                        <span class="typed-text" id="position"></span>
-                    </div>
-                </div>
+                <div class="subtitle" style="display:none;"></div>
                 <div class="contact-item whatsapp">
-                    <a href="https://wa.me/79538888468" class="contact-link">
-                    <i class="fab fa-whatsapp"></i>
-                    +7 953 888-84-68
+                    <a href="https://wa.me/79039999467" class="contact-link" target="_blank" rel="noopener">
+                        <i class="bx bxl-whatsapp"></i>
+                        <span>+7(903)-9999-467</span>
                     </a>
                 </div>
                 <div class="contact-item telegram">
-                    <a href="https://t.me/Mihalefff" class="contact-link">
-                    <i class="fab fa-telegram"></i>
-                    @Mihalefff
+                    <a href="https://t.me/Mihaleffx" class="contact-link" target="_blank" rel="noopener">
+                        <i class="bx bxl-telegram"></i>
+                        <span>@Mihaleffx</span>
                     </a>
+                </div>
+                <div class="contact-item email">
+                    <a href="mailto:mihaleffx@gmail.com" class="contact-link">
+                        <i class="bx bxs-envelope"></i>
+                        <span>mihaleffx@gmail.com</span>
+                    </a>
+                </div>
+                <div class="contacts-metrics">
+                    <div class="metric-item">
+                        <div class="metric-value">3.5</div>
+                        <div class="metric-label">года опыта</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">4+</div>
+                        <div class="metric-label">направления услуг</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">10+</div>
+                        <div class="metric-label">технологий</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -247,77 +370,45 @@
         
         animate();
 
-        // Добавляем глобальный курсор
-        const mainCursor = document.getElementById('main-cursor');
-        mainCursor.style.animation = 'blink-caret 0.75s step-end infinite';
-
-        // Тайпрайтер
+        // Новый JS-блок:
         (function() {
             const nameEl = document.getElementById('name');
             const positionEl = document.getElementById('position');
-            const cursor = document.getElementById('main-cursor');
-            const subtitle = document.querySelector('.subtitle');
-            
+            function clearAllCursors() {
+                nameEl.querySelectorAll('.cursor').forEach(c => c.remove());
+                positionEl.querySelectorAll('.cursor').forEach(c => c.remove());
+            }
             async function typeWriter(element, text, speed) {
-                element.textContent = '';
-                for (let i = 0; i < text.length; i++) {
-                    element.textContent += text[i];
+                clearAllCursors();
+                for (let i = 0; i <= text.length; i++) {
+                    clearAllCursors();
+                    element.innerHTML = text.slice(0, i) + '<span class="cursor">&nbsp;</span>';
                     await delay(speed);
                 }
+                clearAllCursors();
+                element.innerHTML = text + '<span class="cursor">&nbsp;</span>';
+                // Курсор просто остаётся и мигает через CSS
+                await delay(1500); // пауза перед следующей строкой
             }
-
             function delay(ms) {
                 return new Promise(resolve => setTimeout(resolve, ms));
             }
-
             function resetElementsState() {
-                [nameEl, positionEl].forEach(el => el.textContent = '');
-                Object.assign(cursor.style, {
-                    animation: 'blink-caret 0.75s step-end infinite',
-                    display: 'none'
-                });
-                subtitle.style.opacity = '0';
-                document.querySelector('.name-container').appendChild(cursor);
+                nameEl.textContent = '';
+                positionEl.textContent = '';
             }
-
             function resetAnimation() {
                 resetElementsState();
                 startAnimation();
             }
-
             async function startAnimation() {
-                // Инициализация
-                cursor.style.display = 'none';
-                subtitle.style.opacity = '0';
-                nameEl.textContent = '';
-                positionEl.textContent = '';
-                
-                // Печать имени
-                cursor.style.display = 'inline-block';
+                resetElementsState();
                 await typeWriter(nameEl, 'IGOR MIHALEFF', 100);
-                
-                // Пауза 2 секунды
                 await delay(2000);
-                
-                // Перемещение курсора
-                await delay(200);
-                cursor.style.display = 'none';
-                
-                // Подготовка второй строки
-                subtitle.style.opacity = '1';
-                document.querySelector('.position-container').appendChild(cursor);
-                
-                // Печать должности
-                cursor.style.display = 'inline-block';
-                cursor.style.animation = 'blink-caret 0.75s step-end infinite';
-                await typeWriter(positionEl, 'Full-Stack Developer', 70);
-                
-                // Задержка и перезапуск
-                await delay(5000);
+                await typeWriter(positionEl, 'Backend Developer', 70);
+                await delay(2000);
                 resetAnimation();
             }
-
-            // Первый запуск
             startAnimation();
         })();
     </script>
