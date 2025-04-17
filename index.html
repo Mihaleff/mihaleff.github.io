@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-icons-font@v7/font/simple-icons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <script src="translations.js"></script>
     <style>
         .cursor {
             border-left: 2px solid rgba(255,255,255,0.8);
@@ -171,42 +172,69 @@
             white-space: normal;
             word-break: break-word;
         }
+        /* Стили для переключателя языков */
+        .lang-switcher {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            z-index: 100; /* Поверх других элементов */
+        }
+        .lang-switcher button {
+            background: rgba(255, 255, 255, 0.15);
+            border: none;
+            color: #fff;
+            padding: 8px 14px;
+            margin-left: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s;
+            font-size: 0.9em;
+        }
+        .lang-switcher button:hover,
+        .lang-switcher button.active {
+            background: rgba(255, 255, 255, 0.3);
+        }
     </style>
 </head>
 <body>
     <div class="banner">
+        <div class="lang-switcher">
+            <button onclick="setLanguage('ru')" data-lang-btn="ru">RU</button>
+            <button onclick="setLanguage('en')" data-lang-btn="en">EN</button>
+        </div>
         <canvas id="particles"></canvas>
         <div class="glow"></div>
         <div class="content">
-            <h1>Backend & AI Разработка</h1>
+            <h1 data-translate="mainHeading">Backend & AI Разработка</h1>
             <ul class="services">
                 <li>
-                    <div class="service-title">Backend на Go</div>
-                    <div class="service-examples">микросервисы • REST API • высоконагруженные системы</div>
+                    <div class="service-title" data-translate="serviceGoTitle">Backend на Go</div>
+                    <div class="service-examples" data-translate="serviceGoExamples">микросервисы • REST API • высоконагруженные системы</div>
                 </li>
                 <li>
-                    <div class="service-title">AI-интеграции</div>
-                    <div class="service-examples">AI-ассистенты • автоматизация тестов • ускорение разработки</div>
+                    <div class="service-title" data-translate="serviceAiTitle">AI-интеграции</div>
+                    <div class="service-examples" data-translate="serviceAiExamples">AI-ассистенты • автоматизация тестов • ускорение разработки</div>
                 </li>
                 <li>
-                    <div class="service-title">Оптимизация и DevOps</div>
-                    <div class="service-examples">кэширование • оптимизация SQL • облачные сервисы</div>
+                    <div class="service-title" data-translate="serviceDevOpsTitle">Оптимизация и DevOps</div>
+                    <div class="service-examples" data-translate="serviceDevOpsExamples">кэширование • оптимизация SQL • облачные сервисы</div>
                 </li>
                 <li>
-                    <div class="service-title">Интеграции</div>
-                    <div class="service-examples">внешние API • платежные системы • геолокация</div>
+                    <div class="service-title" data-translate="serviceIntegrationTitle">Интеграции</div>
+                    <div class="service-examples" data-translate="serviceIntegrationExamples">внешние API • платежные системы • геолокация</div>
                 </li>
             </ul>
             <div class="tech-stack">
                 <div class="tech-group">
-                    <div class="tech-label">Языки и платформы:</div>
+                    <div class="tech-label" data-translate="techLangPlatforms">Языки и платформы:</div>
                     <div class="tech-items">
                         <span class="go"><span class="icon-badge go"><i class="si si-go" style="color:#00ADD8" aria-label="Go"></i></span>Go</span>
                         <span class="nodejs"><span class="icon-badge nodejs"><i class="devicon-nodejs-plain colored" aria-label="Node.js"></i></span>Node.js</span>
                     </div>
                 </div>
                 <div class="tech-group">
-                    <div class="tech-label">Базы данных и кэш:</div>
+                    <div class="tech-label" data-translate="techDbCache">Базы данных и кэш:</div>
                     <div class="tech-items">
                         <span class="postgres"><span class="icon-badge pg"><i class="devicon-postgresql-plain colored" aria-label="PostgreSQL"></i></span>PostgreSQL</span>
                         <span class="mysql"><span class="icon-badge mysql"><i class="devicon-mysql-plain colored" aria-label="MySQL"></i></span>MySQL</span>
@@ -215,7 +243,7 @@
                     </div>
                 </div>
                 <div class="tech-group">
-                    <div class="tech-label">Инструменты и API:</div>
+                    <div class="tech-label" data-translate="techToolsApi">Инструменты и API:</div>
                     <div class="tech-items">
                         <span class="ai"><span class="icon-badge ai"><i class="fas fa-brain" style="color:#FFD600" aria-label="AI"></i></span>AI-ассистенты</span>
                         <span class="ai"><span class="icon-badge cursor-ide"><img src="cursorlogo.svg" alt="Cursor IDE"></span>Cursor IDE</span>
@@ -230,41 +258,41 @@
                 </div>
                 <div class="signature">
                     <h2 class="name-container" aria-live="polite">
-                        <span class="typed-text" id="name"></span>
-                        <span class="typed-text" id="position"></span>
+                        <span class="typed-text" id="name" data-translate="contactName">IGOR MIHALEFF</span>
+                        <span class="typed-text" id="position" data-translate="contactPosition">Backend Developer</span>
                     </h2>
                 </div>
                 <div class="subtitle" style="display:none;"></div>
                 <div class="contact-item whatsapp">
                     <a href="https://wa.me/79039999467" class="contact-link" target="_blank" rel="noopener">
                         <i class="bx bxl-whatsapp"></i>
-                        <span>+7(903)-9999-467</span>
+                        <span data-translate="contactWhatsapp">+7(903)-9999-467</span>
                     </a>
                 </div>
                 <div class="contact-item telegram">
                     <a href="https://t.me/Mihaleffx" class="contact-link" target="_blank" rel="noopener">
                         <i class="bx bxl-telegram"></i>
-                        <span>@Mihaleffx</span>
+                        <span data-translate="contactTelegram">@Mihaleffx</span>
                     </a>
                 </div>
                 <div class="contact-item email">
                     <a href="mailto:mihaleffx@gmail.com" class="contact-link">
                         <i class="bx bxs-envelope"></i>
-                        <span>mihaleffx@gmail.com</span>
+                        <span data-translate="contactEmail">mihaleffx@gmail.com</span>
                     </a>
                 </div>
                 <div class="contacts-metrics">
                     <div class="metric-item">
                         <div class="metric-value">3.5</div>
-                        <div class="metric-label">года опыта</div>
+                        <div class="metric-label" data-translate="metricExperienceLabel">года опыта</div>
                     </div>
                     <div class="metric-item">
                         <div class="metric-value">4+</div>
-                        <div class="metric-label">направления<br>услуг</div>
+                        <div class="metric-label" data-translate="metricServicesLabel">направления<br>услуг</div>
                     </div>
                     <div class="metric-item">
                         <div class="metric-value">10+</div>
-                        <div class="metric-label">технологий</div>
+                        <div class="metric-label" data-translate="metricTechLabel">технологий</div>
                     </div>
                 </div>
             </div>
@@ -416,6 +444,48 @@
             }
             startAnimation();
         })();
+
+        // --- Новый скрипт для локализации ---
+        function setLanguage(lang) {
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key]; // Используем innerHTML для поддержки <br>
+                } else {
+                    // Если перевода нет, оставляем исходный текст или показываем ключ
+                    console.warn(`Translation key "${key}" not found for language "${lang}"`);
+                }
+            });
+
+            // Обновляем заголовок страницы
+            document.title = translations[lang].pageTitle || document.title;
+
+            // Обновляем активную кнопку
+            document.querySelectorAll('.lang-switcher button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            const activeBtn = document.querySelector(`.lang-switcher button[data-lang-btn="${lang}"]`);
+            if (activeBtn) {
+                activeBtn.classList.add('active');
+            }
+
+            // Сохраняем язык в localStorage
+            localStorage.setItem('preferredLanguage', lang);
+
+            // Перезапускаем анимацию тайпинга с новыми текстами (если нужно)
+            // Это может потребовать модификации вашего скрипта тайпинга,
+            // чтобы он брал тексты из translations или data-атрибутов
+            // Например, передать lang в startAnimation()
+            // startAnimation(lang); // Пример вызова
+        }
+
+        // При загрузке страницы устанавливаем сохраненный язык или язык по умолчанию
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLanguage') || 'ru'; // По умолчанию русский
+            setLanguage(savedLang);
+        });
+
     </script>
 </body>
 </html> 
