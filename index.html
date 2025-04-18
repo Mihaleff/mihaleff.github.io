@@ -473,6 +473,12 @@
             // Сохраняем язык в localStorage
             localStorage.setItem('preferredLanguage', lang);
 
+            // Скрываем/показываем телефон для англ/рус
+            const phoneItem = document.querySelector('.contact-item.whatsapp');
+            if (phoneItem) {
+                phoneItem.style.display = lang === 'en' ? 'none' : '';
+            }
+
             // Перезапускаем анимацию тайпинга с новыми текстами (если нужно)
             // Это может потребовать модификации вашего скрипта тайпинга,
             // чтобы он брал тексты из translations или data-атрибутов
@@ -482,7 +488,7 @@
 
         // При загрузке страницы устанавливаем сохраненный язык или язык по умолчанию
         document.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('preferredLanguage') || 'ru'; // По умолчанию русский
+            const savedLang = localStorage.getItem('preferredLanguage') || 'en'; // По умолчанию английский
             setLanguage(savedLang);
         });
 
