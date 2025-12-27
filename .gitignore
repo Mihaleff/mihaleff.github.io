@@ -30,3 +30,8 @@ node_modules/
 # Build outputs
 dist/
 build/
+
+# Private files
+resume.html
+cv.html
+*.pdf
