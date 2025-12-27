@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Igor Mihaleff - Senior Backend Engineer specializing in Golang, high-load systems, microservices, and AI integrations">
+    <title>IGOR MIHALEFF | Senior Backend Engineer (Golang)</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Icons: Simple Icons for brands, Font Awesome for UI -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-icons-font@v7/font/simple-icons.min.css">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon32.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+
+<body>
+    <div class="banner">
+        <div class="lang-switcher" style="display: none;"></div>
+        <canvas id="particles"></canvas>
+        <div class="glow"></div>
+        <div class="content">
+            <h1>Scalable Backend Systems & AI Solutions</h1>
+            <ul class="services">
+                <li>
+                    <div class="service-title">Backend in Go</div>
+                    <div class="service-examples">High-Load Architecture • Microservices (Go) • gRPC</div>
+                </li>
+                <li>
+                    <div class="service-title">AI Integrations</div>
+                    <div class="service-examples">LLM Agents • Business Automation • RAG Systems</div>
+                </li>
+                <li>
+                    <div class="service-title">Optimization & DevOps</div>
+                    <div class="service-examples">Cloud Infrastructure (AWS) • DB Optimization • Docker/K8s</div>
+                </li>
+            </ul>
+            <div class="tech-stack">
+                <div class="tech-group">
+                    <div class="tech-label">Languages & Platforms:</div>
+                    <div class="tech-items">
+                        <span class="tech-tag"><i class="si si-go" style="color:#00ADD8"></i>Go</span>
+                        <span class="tech-tag"><i class="si si-python" style="color:#3776AB"></i>Python</span>
+                        <span class="tech-tag"><i class="si si-nodedotjs" style="color:#5FA04E"></i>Node.js</span>
+                    </div>
+                </div>
+                <div class="tech-group">
+                    <div class="tech-label">Databases & Infrastructure:</div>
+                    <div class="tech-items">
+                        <span class="tech-tag"><i class="si si-postgresql" style="color:#4169E1"></i>PostgreSQL</span>
+                        <span class="tech-tag"><i class="si si-mysql" style="color:#4479A1"></i>MySQL</span>
+                        <span class="tech-tag"><i class="si si-redis" style="color:#DC382D"></i>Redis</span>
+                        <span class="tech-tag"><i class="si si-docker" style="color:#2496ED"></i>Docker</span>
+                        <span class="tech-tag"><i class="si si-kubernetes" style="color:#326CE5"></i>K8s</span>
+                    </div>
+                </div>
+                <div class="tech-group">
+                    <div class="tech-label">Tools & API:</div>
+                    <div class="tech-items">
+                        <span class="tech-tag"><i class="si si-openai" style="color:#412991"></i>LLM Integration</span>
+                        <span class="tech-tag"><i class="fas fa-cubes" style="color:#a855f7"></i>Microservices</span>
+                        <span class="tech-tag"><i class="si si-amazonaws" style="color:#FF9900"></i>AWS</span>
+                        <span class="tech-tag"><i class="si si-githubactions" style="color:#2088FF"></i>CI/CD</span>
+                        <span class="tech-tag"><i class="si si-swagger" style="color:#85EA2D"></i>Swagger</span>
+                    </div>
+                </div>
+            </div>
+            <div class="contacts">
+                <div class="avatar">
+                    <img src="face.jpeg" alt="Михалёв Игорь">
+                </div>
+                <div class="signature-block">
+                    <div class="signature">
+                        <h2 class="name-container" aria-live="polite">
+                            <span class="typed-text" id="name">IGOR MIHALEFF</span>
+                            <span class="typed-text" id="position">Senior Backend Engineer (Golang)</span>
+                        </h2>
+                    </div>
+                    <div class="subtitle" style="display:none;"></div>
+                </div>
+
+                <div class="buttons-container">
+                    <div class="contact-item linkedin">
+                        <a href="https://www.linkedin.com/in/mihaleff" class="contact-link" target="_blank"
+                            rel="noopener">
+                            <i class="si si-linkedin"></i>
+                            <span>LinkedIn Profile</span>
+                        </a>
+                    </div>
+                    <div class="contact-item telegram">
+                        <a href="https://t.me/Mihaleffx" class="contact-link" target="_blank" rel="noopener">
+                            <i class="si si-telegram"></i>
+                            <span>@Mihaleffx</span>
+                        </a>
+                    </div>
+                    <div class="contact-item email">
+                        <a href="mailto:mihaleffx@gmail.com" class="contact-link">
+                            <i class="fas fa-envelope"></i>
+                            <span>mihaleffx@gmail.com</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="contacts-metrics">
+                    <div class="metric-item">
+                        <div class="metric-value">5+</div>
+                        <div class="metric-label">Years of<br>Engineering</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">15+</div>
+                        <div class="metric-label">Projects<br>Delivered</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">Cloud & AI</div>
+                        <div class="metric-label">Expert</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+
+        // Устанавливаем размер canvas равным размеру баннера
+        function resizeCanvas() {
+            const banner = document.querySelector('.banner');
+            canvas.width = banner.offsetWidth;
+            canvas.height = banner.offsetHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // Создаем массив частиц
+        const particles = [];
+        const particleCount = 50;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 2;
+                this.vy = (Math.random() - 0.5) * 2;
+                this.radius = Math.random() * 2;
+                this.originalRadius = this.radius;
+                this.color = '#10B981';
+                this.connections = [];
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Отражение от границ
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+
+                // Взаимодействие с мышью
+                const dx = mouseX - this.x;
+                const dy = mouseY - this.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < 100) {
+                    this.radius = this.originalRadius * (1 + (100 - distance) / 50);
+                } else {
+                    this.radius = this.originalRadius;
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+        }
+
+        // Создаем частицы
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        // Отслеживаем положение мыши
+        let mouseX = 0;
+        let mouseY = 0;
+
+        canvas.addEventListener('mousemove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            mouseX = e.clientX - rect.left;
+            mouseY = e.clientY - rect.top;
+        });
+
+        // Функция анимации
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Обновляем и рисуем частицы
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+
+            // Рисуем соединения между близкими частицами
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 100) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(220, 248, 198, ${1 - distance / 100})`;
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        // Улучшенная анимация печати
+        (function () {
+            const nameEl = document.getElementById('name');
+            const positionEl = document.getElementById('position');
+
+            const NAME_TEXT = 'IGOR MIHALEFF';
+            const POSITION_TEXT = 'Senior Backend Engineer (Golang)';
+
+            function delay(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+
+            function createCursor() {
+                const cursor = document.createElement('span');
+                cursor.className = 'cursor';
+                return cursor;
+            }
+
+            async function typeText(element, text, speed = 80) {
+                element.textContent = '';
+                const cursor = createCursor();
+                element.appendChild(cursor);
+
+                for (let i = 0; i < text.length; i++) {
+                    // Вставляем символ перед курсором
+                    const char = document.createTextNode(text[i]);
+                    element.insertBefore(char, cursor);
+                    await delay(speed + Math.random() * 30); // Небольшая вариативность для естественности
+                }
+
+                return cursor;
+            }
+
+            async function clearText(element, speed = 40) {
+                const cursor = element.querySelector('.cursor');
+                const text = element.textContent;
+
+                for (let i = text.length; i > 0; i--) {
+                    element.textContent = text.slice(0, i - 1);
+                    if (cursor) element.appendChild(cursor);
+                    await delay(speed);
+                }
+            }
+
+            async function animationLoop() {
+                // Начальная пауза
+                await delay(500);
+
+                // Печатаем имя
+                const nameCursor = await typeText(nameEl, NAME_TEXT, 90);
+                await delay(800);
+
+                // Убираем курсор с имени, начинаем печатать должность
+                nameCursor.remove();
+                const posCursor = await typeText(positionEl, POSITION_TEXT, 60);
+
+                // Пауза для чтения
+                await delay(4000);
+
+                // Стираем должность
+                await clearText(positionEl, 35);
+
+                await delay(300);
+
+                // Стираем имя
+                const tempCursor = createCursor();
+                nameEl.appendChild(tempCursor);
+                await clearText(nameEl, 45);
+
+                await delay(800);
+
+                // Повторяем цикл
+                animationLoop();
+            }
+
+            // Запуск анимации
+            animationLoop();
+        })();
+
+        // --- Новый скрипт для локализации ---
+
+
+    </script>
+</body>
+
+</html>
